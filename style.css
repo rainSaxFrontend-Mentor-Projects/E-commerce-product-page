@@ -31,6 +31,62 @@ h6 {
     margin: 0;
 }
 
+header {
+    padding: 1.5rem;
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: 1fr;
+}
+
+.header.logo-container {
+    grid-column: 2 / span 3;
+}
+
+.header.avatar-container {
+    width: 1.5rem;
+    height: 1.5rem;
+    grid-column: -1;
+}
+
+.header.cart-container {
+    grid-column: 8;
+}
+
+.hamburger-menu {
+    display: none;
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.hamburger-content {
+    padding: 1.5rem;
+    width: 65%;
+    background-color: white;
+}
+
+.hamburger-content>.hamburger-close {
+    margin-bottom: 3rem;
+}
+
+.hamburger-content>h2 {
+    margin: 1.25rem 0;
+}
+
+.visible {
+    display: block;
+}
+
+.visible-flex {
+    display: flex;
+}
+
+.visible-grid {
+    display: grid;
+}
+
 .attribution {
     font-size: 11px;
     text-align: center;
