@@ -1,3 +1,7 @@
+:root {
+    --orange: #FF7E1B;
+}
+
 html {
     box-sizing: border-box;
 }
@@ -33,6 +37,8 @@ h6 {
 
 main {
     display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
 }
 
 header {
@@ -83,7 +89,10 @@ header {
 .slideshow {
     display: flex;
     align-items: center;
+    grid-row: 2;
+    grid-column: 1;
     height: clamp(18rem, 14.549rem + 14.723vw, 27.8rem);
+    width: 100%;
     padding: 1rem;
     background: url("./images/image-product-1.jpg");
     background-repeat: no-repeat;
@@ -110,8 +119,86 @@ header {
     width: 22%;
 }
 
+/* set to display flex to make visible */
+.cart {
+    display: none;
+    flex-direction: column;
+    align-self: center;
+    gap: 1rem;
+    grid-row: 2;
+    grid-column: 1;
+    background-color: white;
+    width: calc(100% - .5rem);
+    padding: 1.5rem 0;
+    border-radius: 0.625rem;
+    height: 16rem;
+}
+
+.cart>p {
+    margin: 0 1.5rem;
+}
+
+.cart-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+/* set to display grid to make visible */
+.cart-filled {
+    display: none;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    margin: 0 1.5rem;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-product-desc-quant-prices {
+    grid-column: 2 / span 3;
+}
+
+.cart-product-thumbnail {
+    width: 3.125rem;
+}
+
+.cart-product-thumbnail>img {
+    border-radius: .25rem;
+}
+
+.cart-total-price {
+    font-weight: 800;
+}
+
+.cart-delete {
+    background-color: transparent;
+    border: 0;
+    height: 1.5rem;
+    grid-row: 1;
+    grid-column: -1;
+}
+
+.cart-checkout {
+    background-color: var(--orange);
+    border: 0;
+    grid-row: 2;
+    grid-column: 1 / span 5;
+    height: 3.5rem;
+    border-radius: 0.625rem;
+    color: white;
+}
+
+/* set to display: block to make visible */
+.cart-empty {
+    display: block;
+    text-align: center;
+}
+
 .content {
     display: flex;
+    grid-row-start: 3;
     flex-direction: column;
     gap: 1rem;
     padding: 1.5rem;
