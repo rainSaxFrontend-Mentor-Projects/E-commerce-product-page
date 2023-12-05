@@ -126,9 +126,6 @@ header {
     height: clamp(18rem, 14.549rem + 14.723vw, 27.8rem);
     width: 100%;
     padding: 1rem;
-    background: url("./images/image-product-1.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
 .slideshow-buttons {
