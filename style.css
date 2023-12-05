@@ -1,5 +1,6 @@
 :root {
     --orange: #FF7E1B;
+    --full-price: #B6BCC8;
 }
 
 html {
@@ -244,6 +245,9 @@ header {
 
 .full-price {
     grid-column: 4;
+    text-decoration: line-through;
+    color: var(--full-price);
+    font-weight: 700;
 }
 
 .quantity-adjust {
