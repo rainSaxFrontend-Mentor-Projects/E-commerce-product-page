@@ -18,6 +18,16 @@ document.querySelector(".hamburger-close").addEventListener("click", function ()
 document.querySelector(".next-image").addEventListener("click", slideshowNext)
 document.querySelector(".back-image").addEventListener("click", slideshowPrev)
 
+document.querySelector(".quantity-button.plus").addEventListener("click", function () {
+    document.querySelector(".quantity-curr").textContent++;
+})
+
+document.querySelector(".quantity-button.minus").addEventListener("click", function () {
+    if (document.querySelector(".quantity-curr").textContent > 0) {
+        document.querySelector(".quantity-curr").textContent--;
+    }
+})
+
 function slideshowNext() {
     slideshowIdx++;
     if (slideshowIdx > slideshowBgs.length) {
