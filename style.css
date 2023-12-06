@@ -179,7 +179,6 @@ header {
     display: none;
     grid-template-rows: repeat(2, 1fr);
     grid-template-columns: repeat(4, 1fr);
-    margin: 0 1.5rem;
     gap: 1rem;
     justify-content: space-between;
     align-items: center;
@@ -221,7 +220,7 @@ header {
 
 /* set to display: block to make visible */
 .cart-empty {
-    display: block;
+    display: none;
     text-align: center;
 }
 
