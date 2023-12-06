@@ -1,7 +1,8 @@
 const slideshowBgs = [
     "url('./images/image-product-1.jpg')",
     "url('./images/image-product-2.jpg')",
-    "url('./images/image-product-3.jpg')"
+    "url('./images/image-product-3.jpg')",
+    "url('./images/image-product-4.jpg')"
 ]
 var slideshowIdx = 0;
 
@@ -70,7 +71,7 @@ function slideshowNext() {
 function slideshowPrev() {
     slideshowIdx--;
     if (slideshowIdx < 0) {
-        slideshowIdx = 3;
+        slideshowIdx = slideshowBgs.length;
     }
     setSlideshowBg(slideshowIdx)
 }
