@@ -5,8 +5,9 @@ const slideshowBgs = [
     "url('./images/image-product-4.jpg')"
 ]
 var slideshowIdx = 0;
+var thumbnails = document.querySelectorAll(".thumbnail");
 
-setSlideshowBg(slideshowIdx)
+selectThumbnail(slideshowIdx)
 
 document.querySelector(".cart-empty").classList.add("visible")
 
@@ -60,20 +61,43 @@ document.querySelector(".cart-delete").addEventListener("click", function () {
     document.querySelector(".cart-empty").classList.add("visible")
 })
 
+for (let i = 0; i < thumbnails.length; i++) {
+    thumbnails[i].addEventListener("click", function () {
+        selectThumbnail(i)
+    })
+}
+
+function selectThumbnail(index) {
+    thumbnails[index].classList.add("selected-thumbnail");
+    thumbnails[index].firstElementChild.style.opacity = ".5"
+    slideshowIdx = index;
+    clearThumbnails(slideshowIdx)
+    setSlideshowBg(slideshowIdx)
+}
+
+function clearThumbnails(index) {
+    for (let j = 0; j < thumbnails.length; j++) {
+        if (index != j) {
+            thumbnails[j].classList.remove("selected-thumbnail");
+            thumbnails[j].firstElementChild.style.opacity = "1"
+        }
+    }
+}
+
 function slideshowNext() {
     slideshowIdx++;
-    if (slideshowIdx > slideshowBgs.length) {
+    if (slideshowIdx >= slideshowBgs.length) {
         slideshowIdx = 0;
     }
-    setSlideshowBg(slideshowIdx)
+    selectThumbnail(slideshowIdx)
 }
 
 function slideshowPrev() {
     slideshowIdx--;
     if (slideshowIdx < 0) {
-        slideshowIdx = slideshowBgs.length;
+        slideshowIdx = (slideshowBgs.length - 1);
     }
-    setSlideshowBg(slideshowIdx)
+    selectThumbnail(slideshowIdx)
 }
 
 function setSlideshowBg(index) {
