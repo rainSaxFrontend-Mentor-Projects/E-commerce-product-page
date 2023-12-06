@@ -80,6 +80,11 @@ header {
 
 .header.links-container>*:hover {
     cursor: pointer;
+    color: black;
+    text-decoration: underline;
+    text-decoration-color: var(--orange);
+    text-decoration-thickness: .25rem;
+    text-underline-offset: 2.5rem;
 }
 
 .header.avatar-container {
