@@ -21,8 +21,8 @@ document.querySelector(".hamburger-close").addEventListener("click", function ()
 
 document.querySelector(".next-image").addEventListener("click", slideshowNext)
 document.querySelector(".back-image").addEventListener("click", slideshowPrev)
-document.querySelector(".modal-button.next").addEventListener("click", slideshowNext)
-document.querySelector(".modal-button.prev").addEventListener("click", slideshowPrev)
+document.querySelector(".modal-button.next").addEventListener("click", modalNext)
+document.querySelector(".modal-button.prev").addEventListener("click", modalPrev)
 
 document.querySelector(".quantity-button.plus").addEventListener("click", function () {
     document.querySelector(".quantity-curr").textContent++;
@@ -106,6 +106,22 @@ function slideshowPrev() {
     selectThumbnail(slideshowIdx)
 }
 
+function modalNext() {
+    slideshowIdx++;
+    if (slideshowIdx >= (slideshowBgs.length * 2)) {
+        slideshowIdx = 4;
+    }
+    selectThumbnail(slideshowIdx)
+}
+
+function modalPrev() {
+    slideshowIdx--;
+    if (slideshowIdx < 4) {
+        slideshowIdx = ((slideshowBgs.length * 2) - 1);
+    }
+    selectThumbnail(slideshowIdx)
+}
+
 function setSlideshowBg(index) {
     document.querySelector(".slideshow").style.backgroundImage = slideshowBgs[index % 4];
     document.querySelector(".slideshow").style.backgroundRepeat = "no-repeat";
@@ -120,8 +136,10 @@ function setLightboxBg(index) {
 
 function modalOpen() {
     document.querySelector(".modal").classList.add("visible-flex");
+    selectThumbnail(slideshowIdx + 4)
 }
 
 function modalClose() {
     document.querySelector(".modal").classList.remove("visible-flex");
+    selectThumbnail(slideshowIdx - 4)
 }

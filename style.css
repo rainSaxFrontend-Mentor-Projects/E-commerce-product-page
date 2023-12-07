@@ -170,10 +170,11 @@ header {
     padding: 1rem;
 }
 
+/* set to display flex to make visible */
 .slideshow-expand {
+    display: none;
     align-self: flex-start;
     position: absolute;
-    display: flex;
     align-items: center;
     justify-content: center;
     background-color: white;
@@ -570,6 +571,10 @@ header {
     }
 
     .slideshow-thumbnails {
+        display: flex;
+    }
+
+    .slideshow-expand {
         display: flex;
     }
 
