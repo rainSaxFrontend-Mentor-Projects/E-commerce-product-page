@@ -182,6 +182,10 @@ header {
     height: 2.5rem;
 }
 
+.slideshow-expand:hover {
+    cursor: pointer;
+}
+
 .slideshow-buttons {
     display: flex;
     width: 100%;
@@ -219,6 +223,11 @@ header {
 
 .slideshow-thumbnails>*:hover {
     opacity: .7;
+    cursor: pointer;
+}
+
+.slideshow-buttons>*:hover {
+    cursor: pointer;
 }
 
 .selected-thumbnail {
@@ -263,6 +272,15 @@ header {
     justify-self: end;
 }
 
+.modal-close>svg>path {
+    fill: grey;
+}
+
+.modal-close>svg>path:hover {
+    cursor: pointer;
+    fill: var(--orange);
+}
+
 .modal-big {
     grid-row: 2;
     grid-column: 1 / span 4;
@@ -284,6 +302,10 @@ header {
     border-radius: 50%;
     width: 3.5rem;
     height: 3.5rem;
+}
+
+.modal-button:hover {
+    cursor: pointer;
 }
 
 .modal-thumbnails {
@@ -447,6 +469,10 @@ header {
     justify-content: space-between;
 }
 
+.quantity-button:hover {
+    cursor: pointer;
+}
+
 .quantity-curr {
     font-weight: 700;
 }
@@ -471,6 +497,7 @@ header {
 
 .add-cart:hover {
     background-color: var(--orange-hover);
+    cursor: pointer;
 }
 
 .visible {
