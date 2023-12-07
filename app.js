@@ -136,6 +136,7 @@ function setLightboxBg(index) {
 
 function modalOpen() {
     document.querySelector(".modal").classList.add("visible-flex");
+    document.querySelector(".cart").classList.remove("visible-flex")
     selectThumbnail(slideshowIdx + 4)
 }
 
