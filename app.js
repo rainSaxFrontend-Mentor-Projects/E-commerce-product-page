@@ -21,6 +21,8 @@ document.querySelector(".hamburger-close").addEventListener("click", function ()
 
 document.querySelector(".next-image").addEventListener("click", slideshowNext)
 document.querySelector(".back-image").addEventListener("click", slideshowPrev)
+document.querySelector(".modal-button.next").addEventListener("click", slideshowNext)
+document.querySelector(".modal-button.prev").addEventListener("click", slideshowPrev)
 
 document.querySelector(".quantity-button.plus").addEventListener("click", function () {
     document.querySelector(".quantity-curr").textContent++;
@@ -67,12 +69,16 @@ for (let i = 0; i < thumbnails.length; i++) {
     })
 }
 
+document.querySelector(".slideshow-expand").addEventListener("click", modalOpen);
+document.querySelector(".modal-close").addEventListener("click", modalClose);
+
 function selectThumbnail(index) {
     thumbnails[index].classList.add("selected-thumbnail");
     thumbnails[index].firstElementChild.style.opacity = ".5"
     slideshowIdx = index;
     clearThumbnails(slideshowIdx)
     setSlideshowBg(slideshowIdx)
+    setLightboxBg(slideshowIdx)
 }
 
 function clearThumbnails(index) {
@@ -101,7 +107,21 @@ function slideshowPrev() {
 }
 
 function setSlideshowBg(index) {
-    document.querySelector(".slideshow").style.backgroundImage = slideshowBgs[index];
+    document.querySelector(".slideshow").style.backgroundImage = slideshowBgs[index % 4];
     document.querySelector(".slideshow").style.backgroundRepeat = "no-repeat";
     document.querySelector(".slideshow").style.backgroundSize = "cover";
+}
+
+function setLightboxBg(index) {
+    document.querySelector(".modal-big").style.backgroundImage = slideshowBgs[index % 4];
+    document.querySelector(".modal-big").style.backgroundRepeat = "no-repeat";
+    document.querySelector(".modal-big").style.backgroundSize = "cover";
+}
+
+function modalOpen() {
+    document.querySelector(".modal").classList.add("visible-flex");
+}
+
+function modalClose() {
+    document.querySelector(".modal").classList.remove("visible-flex");
 }

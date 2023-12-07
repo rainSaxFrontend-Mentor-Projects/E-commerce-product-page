@@ -165,8 +165,21 @@ header {
 .slideshow {
     display: flex;
     align-items: center;
+    position: relative;
     height: clamp(18rem, 14.549rem + 14.723vw, 27.8rem);
     padding: 1rem;
+}
+
+.slideshow-expand {
+    align-self: flex-start;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 0.9375rem;
+    right: 1rem;
+    height: 2.5rem;
 }
 
 .slideshow-buttons {
@@ -196,11 +209,11 @@ header {
     width: 27.8125rem;
 }
 
-.slideshow-thumbnails>div {
+.thumbnail {
     border-radius: 0.625rem;
 }
 
-.slideshow-thumbnails>div>img {
+.thumbnail>img {
     border-radius: 0.625rem;
 }
 
@@ -210,6 +223,89 @@ header {
 
 .selected-thumbnail {
     outline: 2px solid var(--orange);
+}
+
+/* set display to flex to make visible */
+.modal {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    isolation: isolate;
+    z-index: 1;
+}
+
+.modal::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: -1;
+    background: black;
+    inset: 0;
+    opacity: .75;
+    z-index: -1;
+}
+
+.modal-content {
+    display: grid;
+    width: 35rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.modal-close {
+    grid-column: 4;
+    grid-row: 1;
+    justify-self: end;
+}
+
+.modal-big {
+    grid-row: 2;
+    grid-column: 1 / span 4;
+    width: 35rem;
+    height: 35rem;
+    background: url("./images/image-product-1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 0.9375rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 25rem;
+}
+
+.modal-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border: 0;
+    border-radius: 50%;
+    width: 3.5rem;
+    height: 3.5rem;
+}
+
+.modal-thumbnails {
+    grid-row: 3;
+    grid-column: 1 / span 4;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.modal-thumbnails>* {
+    background-color: white;
+    width: 5.5rem;
+}
+
+.modal-thumbnails>*:hover {
+    opacity: .7;
+    cursor: pointer;
 }
 
 /* set to display flex to make visible */
