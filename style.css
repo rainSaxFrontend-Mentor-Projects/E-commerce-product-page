@@ -238,9 +238,9 @@ header {
 /* set display to flex to make visible */
 .modal {
     display: none;
+    position: absolute;
     justify-content: center;
     align-items: center;
-    position: fixed;
     top: 0;
     width: 100%;
     height: 100vh;
